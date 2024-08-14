@@ -2,23 +2,37 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "inspired by ROADMAP.sh",
-  "author": "enkhbold.n <>",
+  "author": "enkhbold.n <DONE EVERYSHIT ALONE>",
   "keywords": [
     "url",
     "url-shortener"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "start": "./bin/app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "npm run build && node dist/main.js"
   },
   "dependencies": {
-    "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "http-errors": "^2.0.0",
-    "pino": "^9.3.2",
-    "pino-http": "^10.2.0",
-    "pino-pretty": "^11.2.2"
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.5.2",
+    "typescript": "^5.5.4",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/module-alias": "^2.0.4",
+    "@types/node": "^22.2.0",
+    "@types/uuid": "^10.0.0",
+    "ts-node": "^10.9.2"
+  },
+  "_moduleAliases": {
+    "@app": "dist/bootstrap/app.js",
+    "@config": "dist/config",
+    "@routes": "dist/routes",
+    "@models": "dist/models",
+    "@repository": "dist/repository",
+    "@services": "dist/services"
   }
 }
