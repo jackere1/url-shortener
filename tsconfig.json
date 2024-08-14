@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES6",
+    "noImplicitAny": true,
+    "moduleResolution": "Node16",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@app": ["src/bootstrap/app.ts"],
+      "@config": ["src/config"],
+      "@routes": ["src/routes"],
+      "@models": ["src/models"],
+      "@repository": ["src/repository"],
+      "@services": ["src/services"],
+    },
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "include": ["src/**/*"]
+}
