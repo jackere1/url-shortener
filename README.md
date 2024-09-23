@@ -16,3 +16,9 @@ With nodejs:
 
 ### Project page url:
 https://roadmap.sh/projects/url-shortening-service
+
+### Follow up:
+When handling request, the request count in a short range of time can be very big. Implement a locking mechanism for the short URL index, otherwise the short URL collision will happen a lot during a spike. 
+
+##### Tips: 
+Use Database locking mechanisms for each request to achieve transactional operation. You can also use 3rd party software tools(Redis, MQ, Pub/sub etc) and services to make the request handling sequential.
