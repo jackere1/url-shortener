@@ -14,6 +14,14 @@ With nodejs:
 `npm install`
 `npm start`
 
+### Usage
+
+##### Shorten a URL
+`GET: /shorten?originalURL=https://facebook.com` => responds with `{ "shortURL": "123abc" }`
+
+##### Use shortURL
+`GET: /:shortURL`
+
 ### Project page url:
 https://roadmap.sh/projects/url-shortening-service
 
