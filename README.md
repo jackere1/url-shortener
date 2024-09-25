@@ -16,11 +16,11 @@ With nodejs:
 
 ### Usage
 
-##### Shorten a URL
-`GET: /shorten?originalURL=https://facebook.com` => responds with `{ "shortURL": "123abc" }`
+##### Shorten a URL `GET: /shorten?originalURL=https://facebook.com` => responds with `{ "shortURL": "123abc" }`
 
-##### Use shortURL
-`GET: /:shortURL`
+##### Use shortURL `GET: /:shortURL`
+
+##### Get visited counts of short url `GET: /metrics/:shortURL`
 
 ### Project page url:
 https://roadmap.sh/projects/url-shortening-service

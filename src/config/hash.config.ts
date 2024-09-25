@@ -1,11 +1,11 @@
 import { shortUrlModel } from "@models";
 
-/**
- * @description: Hash available -> 36 ^ 6 = 2.176.782.336
- */
 const charSet = "0123456789abcdefghijklmnopqrstuvwxyz";
 const shortUrlLength = 6;
 
+/**
+ * @description: Hash available -> 36 ^ 6 = 2.176.782.336
+ */
 const generateShortHash = async (length: number = shortUrlLength) => {
   let shortURL = "";
   let offset = await shortUrlModel.countDocuments();

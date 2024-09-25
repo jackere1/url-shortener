@@ -3,8 +3,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get("/", (req, res) => res.json({ message: "Server alive!!!" }));
-
 router.get("/shorten", async (req, res) => {
   const originalURL = req.query.originalURL;
   if (!originalURL) {
@@ -22,9 +20,9 @@ router.get("/:shortId", async (req, res) => {
   return res.redirect(originalURL);
 });
 
-router.delete("/", async (req, res) => {
-  const { originalURL, shortURL } = req.body;
-  const message = await shortURLService.deleteURL(originalURL, shortURL);
+router.delete("/:shortURL", async (req, res) => {
+  const { shortURL } = req.params;
+  const message = await shortURLService.deleteURL(shortURL);
   return res.json({ message });
 });
 

@@ -13,11 +13,34 @@ const createURL = async (originalURL: string, shortURL: string) => {
   return (await newData.save()).toObject();
 };
 
-const deleteURL = async (originalURL: string, shortURL: string) => {
-  const criteria: any = {};
-  if (originalURL) criteria["originalURL"] = originalURL;
-  if (shortURL) criteria["shortURL"] = shortURL;
-  return await shortUrlModel.deleteOne(criteria).lean();
+const deleteURL = async (shortURL: string) => {
+  return await shortUrlModel
+    .deleteOne({
+      shortURL: shortURL ?? "",
+    })
+    .lean();
 };
 
-export const shortURLRepo = { findURL, createURL, deleteURL };
+const getVisitCount = async (shortURL: string) => {
+  return await shortUrlModel.findOne(
+    { shortURL },
+    { visitCount: 1, _id: 0 },
+    { lean: true }
+  );
+};
+
+const getVisitCounts = async () => {
+  return await shortUrlModel.find(
+    {},
+    { _id: 0, __v: 0 },
+    { lean: true }
+  );
+};
+
+export const shortURLRepo = {
+  findURL,
+  createURL,
+  deleteURL,
+  getVisitCount,
+  getVisitCounts,
+};

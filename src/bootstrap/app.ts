@@ -1,14 +1,9 @@
-import { shortenerRoutes } from "@routes";
+import routes from "@routes";
 import express from "express";
 
 const app = express();
 
 app.use(express.json());
-app.use(shortenerRoutes);
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.get("/");
+app.use(routes);
 
 export default app;
